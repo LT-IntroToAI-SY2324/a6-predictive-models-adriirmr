@@ -9,19 +9,28 @@ from sklearn.model_selection import train_test_split
 '''
 
 data = pd.read_csv("data.csv")
-x = data["Age"].values
+x = data["Age"].values 
 y = data["Blood Pressure"].values
 
 # Create your training and testing datasets:
+print(f"x {x}") 
+print(f"y {y}")
+print(f"xtrain {xtrain}")
+print(f"xtest {xtest}")
+print(f"ytrain {ytrain}")
+print(f"ytest {ytest}") 
 
 # Use reshape to turn the x values into 2D arrays:
 xtrain = xtrain.reshape(-1,1)
 
 # Create the model
+model = LinearRegression().fit(xtrain, ytrain) 
 
 # Find the coefficient, bias, and r squared values. 
 # Each should be a float and rounded to two decimal places. 
-
+coef =round(float(model.coef_), 2)
+intercept = round (float(model.intercept_) 2)
+r_squared = model.score(xtrain, ytrain)
 
 # Print out the linear equation and r squared value:
 
