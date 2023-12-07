@@ -10,13 +10,22 @@ x = data[["Age", "EstimatedSalary", "Gender"]].values
 y = data["Purchased"].values
 
 # Step 1: Print the values for x and y
-
+print(x)
+print(y)
 # Step 2: Standardize the data using StandardScaler, 
+scaler = StandardScaler().fix(x)
+print(scaler)
+x = scaler.transform(x)
+print(x)
+scaler= StandardScaler().fix(y)
+print(scaler)
+y = scaler.transform(y)
+print(y)
 
 # Step 3: Transform the data
 
 # Step 4: Split the data into training and testing data
-
+x_train, x_test, y_train, y_test = train_test_split(x, y)
 # Step 5: Fit the data
 
 # Step 6: Create a LogsiticRegression object and fit the data
