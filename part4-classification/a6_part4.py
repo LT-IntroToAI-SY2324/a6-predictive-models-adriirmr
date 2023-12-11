@@ -28,9 +28,39 @@ print(y)
 x_train, x_test, y_train, y_test = train_test_split(x, y)
 # Step 5: Fit the data
 
+model = linear_model.LogisticRegression().fit(x_train, y_train)
+
 # Step 6: Create a LogsiticRegression object and fit the data
 
 # Step 7: Print the score to see the accuracy of the model
 
 # Step 8: Print out the actual ytest values and predicted y values
-# based on the xtest data
+# based on the xtest data    
+print("Accuracy:", model.score(x_test, y_test))
+print("*************")
+print("Testing Results:")
+print("")
+print(y_test)
+for index in range(len(x_test)):
+    x = x_test[index]
+    print(x)
+    x = x.reshape(-1, 4)
+    print(x)
+    y_pred = int(model.predict(x))
+
+    if y_pred == 0:
+        y_pred = "Iris-setosa"
+    elif y_pred == 1:
+        y_pred = "Iris-virginica"
+    else:
+        y_pred = "Iris-versicolor"
+    
+    actual = y_test[index]
+    if actual == 0:
+        actual = "Iris-setosa"
+    elif actual == 1:
+        actual = "Iris-virginica"
+    else:
+        actual = "Iris-versicolor"
+    print("Predicted Species: " + y_pred + " Actual Species: " + actual)
+    print("")
